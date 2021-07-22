@@ -35,7 +35,8 @@ if 1:
 
     # Dataset.
     # desc += '-ffhq';     dataset = EasyDict(tfrecord_dir='ffhq');                 train.mirror_augment = True
-    desc += '-kitchen64'; dataset = EasyDict(tfrecord_dir='/content/stylegan/datasets/kitchen64');            train.mirror_augment = True
+    # desc += '-kitchen64'; dataset = EasyDict(tfrecord_dir='/content/stylegan/datasets/kitchen64');            train.mirror_augment = True
+    desc += '-kitchen128'; dataset = EasyDict(tfrecord_dir='/content/stylegan/datasets/kitchen128');            train.mirror_augment = True
     #desc += '-ffhq512';  dataset = EasyDict(tfrecord_dir='ffhq', resolution=512); train.mirror_augment = True
     #desc += '-ffhq256';  dataset = EasyDict(tfrecord_dir='ffhq', resolution=256); train.mirror_augment = True
     #desc += '-celebahq'; dataset = EasyDict(tfrecord_dir='celebahq');             train.mirror_augment = True
@@ -50,7 +51,8 @@ if 1:
     # desc += '-8gpu'; submit_config.num_gpus = 8; sched.minibatch_base = 32; sched.minibatch_dict = {4: 512, 8: 256, 16: 128, 32: 64, 64: 32}
 
     # Default options.
-    train.total_kimg = 3500 # for 64x64 image # old: train.total_kimg = 25000
+    # train.total_kimg = 3500 # for 64x64 image # old: train.total_kimg = 25000
+    train.total_kimg = 7000 # for 128x128 image
     sched.lod_initial_resolution = 8
     sched.G_lrate_dict = {128: 0.0015, 256: 0.002, 512: 0.003, 1024: 0.003}
     sched.D_lrate_dict = EasyDict(sched.G_lrate_dict)
