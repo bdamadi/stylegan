@@ -28,7 +28,7 @@ if 1:
     D_loss        = EasyDict(func_name='training.loss.D_logistic_simplegp', r1_gamma=10.0) # Options for discriminator loss.
     dataset       = EasyDict()                                                             # Options for load_dataset().
     sched         = EasyDict()                                                             # Options for TrainingSchedule.
-    grid          = EasyDict(size='4k', layout='random')                                   # Options for setup_snapshot_image_grid().
+    grid          = EasyDict(size='1080p', layout='random')                                   # Options for setup_snapshot_image_grid().
     metrics       = [metric_base.fid50k]                                                   # Options for MetricGroup.
     submit_config = dnnlib.SubmitConfig()                                                  # Options for dnnlib.submit_run().
     tf_config     = {'rnd.np_random_seed': 1000}                                           # Options for tflib.init_tf().
@@ -36,7 +36,8 @@ if 1:
     # Dataset.
     # desc += '-ffhq';     dataset = EasyDict(tfrecord_dir='ffhq');                 train.mirror_augment = True
     # desc += '-kitchen64'; dataset = EasyDict(tfrecord_dir='/content/stylegan/datasets/kitchen64');            train.mirror_augment = True
-    desc += '-kitchen128'; dataset = EasyDict(tfrecord_dir='/content/stylegan/datasets/kitchen128');            train.mirror_augment = True
+    # desc += '-kitchen128'; dataset = EasyDict(tfrecord_dir='/content/stylegan/datasets/kitchen128');            train.mirror_augment = True
+    desc += '-kitchen256'; dataset = EasyDict(tfrecord_dir='/content/drive/MyDrive/LSUN/lsun-kitchen-25000');            train.mirror_augment = True
     #desc += '-ffhq512';  dataset = EasyDict(tfrecord_dir='ffhq', resolution=512); train.mirror_augment = True
     #desc += '-ffhq256';  dataset = EasyDict(tfrecord_dir='ffhq', resolution=256); train.mirror_augment = True
     #desc += '-celebahq'; dataset = EasyDict(tfrecord_dir='celebahq');             train.mirror_augment = True
@@ -52,7 +53,8 @@ if 1:
 
     # Default options.
     # train.total_kimg = 3500 # for 64x64 image # old: train.total_kimg = 25000
-    train.total_kimg = 7000 # for 128x128 image
+    # train.total_kimg = 7000 # for 128x128 image
+    train.total_kimg = 15000 # for 256x256 image
     sched.lod_initial_resolution = 8
     sched.G_lrate_dict = {128: 0.0015, 256: 0.002, 512: 0.003, 1024: 0.003}
     sched.D_lrate_dict = EasyDict(sched.G_lrate_dict)
