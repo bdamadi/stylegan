@@ -54,7 +54,7 @@ if 1:
     # Default options.
     # train.total_kimg = 3500 # for 64x64 image # old: train.total_kimg = 25000
     # train.total_kimg = 7000 # for 128x128 image
-    train.total_kimg = 15000 # for 256x256 image
+    train.total_kimg = 35000 # for 256x256 image
     sched.lod_initial_resolution = 8
     sched.G_lrate_dict = {128: 0.0015, 256: 0.002, 512: 0.003, 1024: 0.003}
     sched.D_lrate_dict = EasyDict(sched.G_lrate_dict)
